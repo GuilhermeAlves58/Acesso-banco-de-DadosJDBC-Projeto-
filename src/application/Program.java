@@ -4,9 +4,11 @@ package application;
 
 import model.dao.DaoFactory;
 import model.dao.SellerDao;
+import model.dao.impl.SellerDaoJDBC;
 import model.entites.Department;
 import model.entites.Seller;
 
+import java.util.Date;
 import java.util.List;
 
 public class Program {
@@ -31,5 +33,10 @@ public class Program {
 		for (Seller seller1 : list){
 			System.out.println(seller1);
 		}
+
+		System.out.println("Test4: seller Insert");
+		Seller seller1 = new Seller(null,"grog","Grog@gmail.com",new Date(),2020.0,department);
+		sellerDao.insert(seller1);
+		System.out.println("Inserted! new id = "+ seller1.getId());
 	}
 }
