@@ -10,10 +10,12 @@ import model.entites.Seller;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Scanner;
 
 public class Program {
 
 	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
 		SellerDao sellerDao = DaoFactory.createSellerDao();
 
 		System.out.println("Test1: seller findById");
@@ -43,5 +45,10 @@ public class Program {
 		Seller selle = sellerDao.findById(1);
 		selle.setName("Martha waine");
 		sellerDao.update(selle);
+
+		System.out.println("Test6: seller delete");
+		System.out.println("Enter a id to be deleted: ");
+		int id = sc.nextInt();
+		sellerDao.deleteById(id);
 	}
 }
